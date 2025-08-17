@@ -1,0 +1,184 @@
+/* Main navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 50px; // Horizontal margin from screen edges
+  padding: 1rem 2rem; // Internal padding
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  position: relative;
+  font-family: "Federant", Times, serif;
+  font-size: 30px;
+  top: 32px; // Slight vertical offset for alignment
+
+  /* Left side: Team name styling */
+  .team-name {
+    z-index: 1; // Ensure it's above background elements
+    font-size: inherit; // Inherit from parent navbar
+    color: inherit;
+  }
+
+  /* Right side: Logo container */
+  .navbar-logo {
+    font-size: 1.5rem;
+    z-index: 1; // Ensure it's above background elements
+
+    img {
+      height: 2rem;
+      width: auto; // Maintain aspect ratio
+      object-fit: contain; // Prevent image distortion
+    }
+  }
+
+  /* Main navigation container with glassmorphism */
+  .capsule-fixed {
+    /* Fixed positioning for scroll persistence */
+    position: fixed;
+    top: 38px; // Distance from top of viewport
+    left: 50%; // Center horizontally
+    transform: translateX(-50%); // Adjust for element's own width
+    z-index: 100; // High z-index to stay above content
+
+    /* Flexbox layout for navigation items */
+    display: flex;
+    gap: 1.5rem; // Space between navigation items
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0.05rem 0.5rem; // Minimal padding for capsule shape
+
+    /* Visual styling */
+    border-radius: 60px; // Creates pill/capsule shape
+    font-size: large;
+    overflow: hidden; // Ensures child elements don't overflow rounded corners
+
+    /* Enhanced shadow for glassmorphism depth */
+    box-shadow: 
+      0 2px 12px rgba(0, 0, 0, 0.08), // Soft shadow for depth
+      0 1px 3px rgba(0, 0, 0, 0.1); // Subtle close shadow
+
+    /* Glassmorphism background layer */
+    .capsule-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0; // Behind all other elements
+
+      /* Glassmorphism properties */
+      background-color: rgba(255, 255, 255, 0.98); // Strong fallback background for initial state
+      border: 1px solid rgba(255, 255, 255, 0.3); // Subtle border
+      border-radius: inherit; // Match parent border radius
+
+      /* Note: backdrop-filter and background-color are controlled by inline styles
+         from React component for dynamic scroll effects */
+    }
+
+    /* Active item indicator capsule */
+    .active-background {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); // Center vertically
+      z-index: 1; // Above background, below text
+
+      /* Visual styling */
+      background-color: #030307; // Dark background for contrast
+      border-radius: 50px; // Pill shape
+      height: 80%; // Slightly smaller than container for visual breathing room
+
+      /* Smooth animations */
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1); // Custom easing for smooth feel
+      pointer-events: none; // Don't interfere with clicks
+
+      /* Position and size controlled by inline styles from React */
+    }
+
+    /* Hover effect capsule */
+    .hover-background {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2; // Above active background, below text
+
+      /* Visual styling */
+      background-color: rgba(218, 218, 218, 0.77); // Light semi-transparent background
+      border-radius: 50px;
+      height: 80%;
+
+      /* Smooth animations */
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      pointer-events: none;
+
+      /* Visibility and position controlled by inline styles from React */
+    }
+
+    /* Navigation list items */
+    li {
+      position: relative;
+      z-index: 3; // Above background elements
+
+      /* Navigation links */
+      a {
+        /* Reset default link styles */
+        text-decoration: none;
+        display: block;
+        position: relative;
+
+        /* Typography */
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        color: #225076; // Default text color
+
+        /* Layout */
+        padding: 0.9rem 1.1rem; // Comfortable click target
+        border-radius: 50px; // Match capsule theme
+        
+        /* Smooth color transitions */
+        transition: color 0.3s ease;
+        z-index: 3; // Ensure text is above all backgrounds
+
+        /* Active link styling */
+        &.active {
+          color: #aaf596; // Bright green for active state
+        }
+
+        /* Hover effects for non-active links */
+        &:not(.active):hover {
+          color: #1a5490; // Slightly darker blue on hover
+        }
+      }
+    }
+  }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    margin: 0 20px; // Reduced margin on mobile
+    font-size: 24px; // Smaller font size
+
+    .capsule-fixed {
+      gap: 1rem; // Reduced gap between items
+      font-size: medium; // Smaller font size for navigation
+
+      li a {
+        padding: 0.7rem 0.9rem; // Reduced padding for mobile
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column; // Stack elements vertically if needed
+    gap: 1rem;
+    
+    .capsule-fixed {
+      position: static; // Remove fixed positioning on very small screens
+      transform: none;
+      left: auto;
+    }
+  }
+}
