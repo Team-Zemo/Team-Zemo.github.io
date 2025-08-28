@@ -1,10 +1,12 @@
-import Navbar from './components/Navbar';
+
 import Home from './pages/Home'; // Correct component name & path
+import './App.css';
+
 
 function App() {
   return (
     <>
-      <Navbar />
+    
       <Home />
     </>
   );
