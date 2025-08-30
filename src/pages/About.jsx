@@ -1,26 +1,9 @@
-// ...existing code...
-import {
-  motion,
-  useAnimation,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-// ...existing code...
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import logo from "../assets/logoTeamZemo.png";
-import Navbar from "../components/Navbar";
 
 function About() {
   return (
     <div>
-      {/* Navbar with About theme */}
-      <Navbar
-        backgroundColor="rgba(59, 130, 246, 0.15)"
-        textColor="text-blue-800"
-        logoColor="invert-0"
-      />
-
       <Parallax
         pages={2}
         style={{ height: "100vh", backgroundColor: "#c0dffc" }}

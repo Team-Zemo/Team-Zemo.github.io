@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "../styles/Global.scss";
 import { NavLink } from "react-router-dom";
+import gigaChadLogo from "../assets/giga_chad_logo.png";
 
 export default function Navbar({
   backgroundColor = "transparent",
@@ -246,7 +247,7 @@ export default function Navbar({
         className={`w-8 h-8 ${isMobileMenuOpen ? "hidden" : "block"} md:block`}
       >
         <img
-          src="/src/assets/giga_chad_logo.png"
+          src={gigaChadLogo}
           alt="Team-Zemo Logo"
           className={`w-full h-full object-contain ${logoColor}`}
         />

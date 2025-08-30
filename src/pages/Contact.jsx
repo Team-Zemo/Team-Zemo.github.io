@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 
 function Contact() {
   return (
@@ -10,12 +9,7 @@ function Contact() {
         backgroundColor: "#faf5ff", // Light purple background
       }}
     >
-      {/* Navbar with Contact theme */}
-      <Navbar
-        backgroundColor="rgba(168, 85, 247, 0.15)"
-        textColor="text-purple-800"
-        logoColor="invert-0"
-      />
+      {/* Navbar removed - now rendered once in App.jsx */}
 
       <div className="container mx-auto px-4 pt-20">
         <h1 className="text-6xl font-bold text-center text-purple-800 mb-8">

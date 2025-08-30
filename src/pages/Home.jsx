@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import webpageHomeVideo from "../assets/webpage_home.mp4";
-import noiseImage from "../assets/nnnoise.svg";
-import Navbar from "../components/Navbar";
-import PageWrapper from "../components/PageWrapper";
 import AnimationIPad from "../components/ui/IPadAnimation";
 import logo from "../assets/logoTeamZemo.png";
 // import Particles from "../components/Particles";
@@ -76,12 +72,14 @@ export default function Home() {
     });
 
     // Marquee infinite scroll
-    gsap.to(marqueeRef.current, {
-      xPercent: -50,
-      repeat: -1,
-      duration: 16,
-      ease: "linear",
-    });
+    if (marqueeRef.current) {
+      gsap.to(marqueeRef.current, {
+        xPercent: -50,
+        repeat: -1,
+        duration: 16,
+        ease: "linear",
+      });
+    }
   }, []);
 
   return (
@@ -92,12 +90,6 @@ export default function Home() {
         backgroundColor: "#f1ffcf",
       }}
     >
-      {/* Navbar with Home theme */}
-      <Navbar
-        backgroundColor="rgba(34, 197, 94, 0.15)"
-        textColor="text-green-800"
-        logoColor="invert-0"
-      />
 
       {/* Hero Section */}
       <section
@@ -214,13 +206,13 @@ export default function Home() {
                       href="mailto:tanishqtiwari2020@gmail.com"
                       className="block text-gray-600 hover:text-green-500 transition-colors"
                     >
-                      [Tanishq Tiwari]
+                      Tanishq Tiwari
                     </a>
                     <a
                       href="mailto:udaykhare77@gmail.com"
                       className="block text-gray-600 hover:text-green-500 transition-colors"
                     >
-                      [Uday Khare]
+                      Uday Khare
                     </a>
                   </div>
                   <div>
@@ -239,10 +231,10 @@ export default function Home() {
                       Support
                     </h4>
                     <a
-                      href="mailto:"
+                      href="mailto:admin@teamzemo.tech"
                       className="block text-gray-600 hover:text-green-500 transition-colors"
                     >
-                      [SUPPORT EMAIL HERE]
+                        admin@teamzemo.tech
                     </a>
                   </div>
                 </div>
@@ -265,13 +257,13 @@ export default function Home() {
                         Twitter / X
                       </a>
                       <a
-                        href="#"
+                        href="https://www.linkedin.com/company/team-zemo"
                         className="block text-gray-600 hover:text-green-500 transition-colors"
                       >
                         LinkedIn
                       </a>
                       <a
-                        href="#"
+                        href="https://github.com/Team-Zemo"
                         className="block text-gray-600 hover:text-green-500 transition-colors"
                       >
                         GitHub
