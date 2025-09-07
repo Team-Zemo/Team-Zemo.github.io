@@ -11,8 +11,8 @@ function NavbarWithRoute() {
   const path = location.pathname;
   const themes = {
     "/": {
-      backgroundColor: "rgba(34, 197, 94, 0.15)",
-      textColor: "text-green-800",
+      backgroundColor: "#f3ffd0 ",
+      textColor: "text-[#a7ffa6] ",
       logoColor: "invert-0",
     },
     "/about": {
