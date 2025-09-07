@@ -247,7 +247,7 @@ export default function Home() {
                         {services.map((service, idx) => (
                             <span
                                 key={idx}
-                                className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold px-8"
+                                className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold px-8 overflow-y-hidden inline-block"
                             >
                                 {service}
                             </span>
